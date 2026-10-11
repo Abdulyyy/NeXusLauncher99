@@ -40,11 +40,11 @@ public class MainMenuFragment extends Fragment {
     private final ActivityResultLauncher<Object> mModInstallerLauncher =
             registerForActivityResult(new OpenDocumentWithExtension("jar"), (data)->{
                 if(data != null) Tools.launchModInstaller(requireContext(), data);
-            });
+            
 
     public MainMenuFragment(){
         super(R.layout.fragment_launcher);
-    }
+    
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -58,28 +58,28 @@ public class MainMenuFragment extends Fragment {
 
             Tools.swapFragment(requireActivity(), GamepadMapperFragment.class, GamepadMapperFragment.TAG, null);
             return true;
-        });
-    }
+        
+    
 
     private void openGameDirectory(Context context) {
         Instance instance = Instances.loadSelectedInstance();
         if(instance == null) {
             Toast.makeText(context, R.string.no_instance, Toast.LENGTH_LONG).show();
             return;
-        }
+        
         File gameDirectory = instance.getGameDirectory();
         if(FileUtils.ensureDirectorySilently(gameDirectory)) {
             openPath(context, gameDirectory, false);
         }else {
             Toast.makeText(context, R.string.gamedir_open_failed, Toast.LENGTH_LONG).show();
-        }
-    }
+        
+    
 
     @Override
     public void onResume() {
         super.onResume();
         ExtraCore.setValue(ExtraConstants.REFRESH_ACCOUNT_SPINNER, true);
-    }
+    
 
     private void runInstallerWithConfirmation() {
         if (ProgressKeeper.getTaskCount() == 0) {
