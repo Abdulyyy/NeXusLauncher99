@@ -100,7 +100,7 @@ jobs:
             NeXusLauncher nightly build.
             Commit hash: ${{ github.sha }}
           files: |
-            out/NeXusLauncher-release.apk
+            out/MojoLauncher-release.apk
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
