@@ -90,17 +90,7 @@ jobs:
           name: app-debug-noruntime
           path: out/app-debug-noruntime.apk
 
-      - name: Release Nightly APK
-        uses: softprops/action-gh-release@v3
-        with:
-          name: NeXusLauncher Nightly Builds
-          prerelease: true
-          tag_name: nightly
-          body: |
-            NeXusLauncher nightly build.
-            Commit hash: ${{ github.sha }}
-          files: |
-            out/MojoLauncher-release.apk
+
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
