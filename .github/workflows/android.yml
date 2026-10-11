@@ -23,7 +23,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v6
         continue-on-error: true
         with:
-          repo: MojoLauncher/LTW
+          repo: NeXusLauncher/LTW
           workflow: android.yml
           workflow_conclusion: success
           name: output-aar
@@ -34,7 +34,7 @@ jobs:
         continue-on-error: true
         with:
           github_token: ${{ secrets.MESA_ACTIONS }}
-          repo: MojoLauncher/mesa-unified2
+          repo: NeXusLauncher/mesa-unified2
           workflow: android.yml
           workflow_conclusion: success
           branch: mojo/26.2
@@ -53,7 +53,7 @@ jobs:
       - name: Create out directory
         run: mkdir out
       - name: Build Publishing .aab
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
+        if: github.repository_owner == 'NeXusLauncher' && github.ref_name == 'v3_openjdk'
         run: |
           gradle :app_mojo:bundleFullGplay
           mv app_mojo/build/outputs/bundle/fullGplay/app_mojo-full-gplay.aab out/app-gplay.aab
@@ -69,10 +69,10 @@ jobs:
           gradle :app_mojo:assembleNoruntimeDebug
           mv app_mojo/build/outputs/apk/noruntime/debug/app_mojo-noruntime-debug.apk out/app-debug-noruntime.apk
       - name: Build Nightly Release .apk
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
+        if: github.repository_owner == 'NeXusLauncher' && github.ref_name == 'v3_openjdk'
         run: |
           gradle :app_mojo:assembleFullPubRelease
-          mv app_mojo/build/outputs/apk/full/pubRelease/app_mojo-full-pubRelease.apk out/MojoLauncher-release.apk
+          mv app_mojo/build/outputs/apk/full/pubRelease/app_mojo-full-pubRelease.apk out/NeXusLauncher-release.apk
       - name: Gen md5sums
         run: |
           md5sum out/app-debug-full.apk > out/app-debug-full.md5
@@ -91,17 +91,17 @@ jobs:
           path: out/app-debug-noruntime.apk
 
       - name: Release Nightly APK
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
+        if: github.repository_owner == 'NeXusLauncher' && github.ref_name == 'v3_openjdk'
         uses: softprops/action-gh-release@v3
         with:
-          name: MojoLauncher Nightly Builds
+          name: NeXusLauncher Nightly Builds
           prerelease: true
           tag_name: nightly
           body: |
-            MojoLauncher nightly build.
+            NeXusLauncher nightly build.
             Commit hash: ${{ github.sha }}
           files: |
-            out/MojoLauncher-release.apk
+            out/NeXusLauncher-release.apk
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
@@ -111,7 +111,7 @@ jobs:
 
       - name: Upload onto the Google Play testing track
         continue-on-error: true
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
+        if: github.repository_owner == 'NeXusLauncher' && github.ref_name == 'v3_openjdk'
         uses: r0adkll/upload-google-play@v1.1.5
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_JSON }}
