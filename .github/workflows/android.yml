@@ -91,7 +91,6 @@ jobs:
           path: out/app-debug-noruntime.apk
 
       - name: Release Nightly APK
-        if: github.repository_owner == 'NeXusLauncher' && github.ref_name == 'v3_openjdk'
         uses: softprops/action-gh-release@v3
         with:
           name: NeXusLauncher Nightly Builds
