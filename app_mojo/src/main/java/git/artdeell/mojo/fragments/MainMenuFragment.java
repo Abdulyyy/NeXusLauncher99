@@ -40,11 +40,11 @@ public class MainMenuFragment extends Fragment {
     private final ActivityResultLauncher<Object> mModInstallerLauncher =
             registerForActivityResult(new OpenDocumentWithExtension("jar"), (data)->{
                 if(data != null) Tools.launchModInstaller(requireContext(), data);
-            
+    });         
 
     public MainMenuFragment(){
         super(R.layout.fragment_launcher);
-    
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
