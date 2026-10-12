@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import net.artdeen.mojo.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.value.Instance;
 import net.kdt.pojavlaunch.value.Instances;
@@ -26,15 +25,15 @@ public class MainMenuFragment extends Fragment {
     private mcVersionSpinner mVersionSpinner;
 
     public MainMenuFragment() {
-        super(R.layout.fragment_launcher);
+        super(net.kdt.pojavlaunch.R.layout.fragment_launcher);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
-        Button mPlayButton = view.findViewById(R.id.play_button);
-        mVersionSpinner = view.findViewById(R.id.version_spinner);
+        ImageButton mEditProfileButton = view.findViewById(net.kdt.pojavlaunch.R.id.edit_profile_button);
+        Button mPlayButton = view.findViewById(net.kdt.pojavlaunch.R.id.play_button);
+        mVersionSpinner = view.findViewById(net.kdt.pojavlaunch.R.id.version_spinner);
 
         if (mPlayButton != null) {
             mPlayButton.setOnClickListener(v -> {
