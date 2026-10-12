@@ -47,7 +47,7 @@ public class MainMenuFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
     Button mPlayButton = view.findViewById(R.id.play_button);
     mVersionSpinner = view.findViewById(R.id.version_spinner);
@@ -58,6 +58,19 @@ public class MainMenuFragment extends Fragment {
 }
 
 private void openGameDirectory(Context context) {
+    Instance instance = Instances.loadSelectedInstance();
+    if(instance == null) {
+        Toast.makeText(context, R.string.global_no_instance, Toast.LENGTH_SHORT).show();
+        return;
+    }
+    File gameDirectory = instance.getGameDirectory();
+    if(FileUtils.ensureDirectorySilently(gameDirectory)) {
+        Tools.openPath(context, gameDirectory.getAbsolutePath());
+    } else {
+        Toast.makeText(context, R.string.global_error, Toast.LENGTH_SHORT).show();
+    }
+}
+    
         
         Instance instance = Instances.loadSelectedInstance();
         if(instance == null) {
