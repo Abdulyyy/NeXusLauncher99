@@ -84,4 +84,4 @@ private void openGameDirectory(Context context) {
             mModInstallerLauncher.launch(null);
         } else Toast.makeText(requireContext(), R.string.tasks_ongoing, Toast.LENGTH_LONG).show();
     }
-}
+    }
