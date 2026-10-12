@@ -25,7 +25,7 @@ public class MainMenuFragment extends Fragment {
     private mcVersionSpinner mVersionSpinner;
 
     public MainMenuFragment() {
-        super(net.kdt.pojavlaunch.R.layout.fragment_launcher);
+        super(git.artdeell.mojo.R.layout.fragment_launcher);
     }
 
     @Override
