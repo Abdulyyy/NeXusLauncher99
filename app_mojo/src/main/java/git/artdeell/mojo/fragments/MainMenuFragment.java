@@ -46,14 +46,14 @@ public class MainMenuFragment extends Fragment {
     private void openGameDirectory(Context context) {
         Instance instance = Instances.loadSelectedInstance();
         if(instance == null) {
-            Toast.makeText(context, R.string.global_no_instance, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Secili bir instance yok", Toast.LENGTH_SHORT).show();
             return;
         }
         File gameDirectory = instance.getGameDirectory();
         if(FileUtils.ensureDirectorySilently(gameDirectory)) {
             Tools.openPath(context, gameDirectory.getAbsolutePath());
         } else {
-            Toast.makeText(context, R.string.global_error, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Dizin acilamadi", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -61,8 +61,4 @@ public class MainMenuFragment extends Fragment {
     public void onResume() {
         super.onResume();
     }
-
-    private void runInstallerWithConfirmation() {
-        // Empty implementation to avoid build errors
-    }
-        }
+}
