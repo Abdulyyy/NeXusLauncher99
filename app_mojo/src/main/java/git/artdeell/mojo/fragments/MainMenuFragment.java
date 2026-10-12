@@ -31,9 +31,9 @@ public class MainMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageButton mEditProfileButton = view.findViewById(net.kdt.pojavlaunch.R.id.edit_profile_button);
-        Button mPlayButton = view.findViewById(net.kdt.pojavlaunch.R.id.play_button);
-        mVersionSpinner = view.findViewById(net.kdt.pojavlaunch.R.id.version_spinner);
+        ImageButton mEditProfileButton = view.findViewById(git.artdeell.mojo.R.id.edit_profile_button);
+        Button mPlayButton = view.findViewById(git.artdeell.mojo.R.id.play_button);
+        mVersionSpinner = view.findViewById(git.artdeell.mojo.R.id.version_spinner);
 
         if (mPlayButton != null) {
             mPlayButton.setOnClickListener(v -> {
