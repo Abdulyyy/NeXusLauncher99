@@ -1,4 +1,4 @@
-package net.artdeen.mojo.fragments;
+package net.kdt.pojavlaunch.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import net.kdt.pojavlaunch.Tools;
-import net.kdt.pojavlaunch.value.Instance;
-import net.kdt.pojavlaunch.value.Instances;
+import net.kdt.pojavlaunch.instances.Instance;
+import net.kdt.pojavlaunch.instances.Instances;
 import net.kdt.pojavlaunch.utils.FileUtils;
-import net.kdt.pojavlaunch.extra.mcVersionSpinner;
+import com.kdt.mcgui.mcVersionSpinner;
 
 import java.io.File;
 
