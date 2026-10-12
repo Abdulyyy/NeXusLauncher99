@@ -48,20 +48,17 @@ public class MainMenuFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
+    Button mPlayButton = view.findViewById(R.id.play_button);
+    mVersionSpinner = view.findViewById(R.id.version_spinner);
 
-        ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
-        Button mPlayButton = view.findViewById(R.id.play_button);
-        mVersionSpinner = view.findViewById(R.id.mc_version_spinner);
+    mPlayButton.setOnClickListener(v -> {
+        Tools.swapFragment(requireActivity(), MainMenuFragment.class, "PlayFragment");
+    });
+}
 
-
-
-
-            Tools.swapFragment(requireActivity(), GamepadMapperFragment.class, GamepadMapperFragment.TAG, null);
-            return true;
+private void openGameDirectory(Context context) {
         
-    
-
-    private void openGameDirectory(Context context) {
         Instance instance = Instances.loadSelectedInstance();
         if(instance == null) {
             Toast.makeText(context, R.string.no_instance, Toast.LENGTH_LONG).show();
